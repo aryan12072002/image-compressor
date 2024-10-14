@@ -1,0 +1,22 @@
+<!-- templates/upload.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-family: 'Times New Roman', Times, serif;">Upload Image</title>
+    <link rel="stylesheet" href="{% static 'imagecompressor/styles.css' %}">  
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+        <a href="{% url 'image_list' %}">View Uploaded Images</a>
+    </div>
+</body>
+</html>
